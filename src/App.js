@@ -7,7 +7,7 @@ import { Table } from '@material-ui/core';
 
 const routes = (
   <Switch>
-    <Route path="/perso-page" component={Table} />
+    <Route path="/perso-page-1" component={Table} />
     <Route path="/" exact component={Main} />
     <Redirect to="/" />
   </Switch>
