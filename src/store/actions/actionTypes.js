@@ -1,0 +1,1 @@
+export const ALL_CHECKBOX = 'ALL_CHECKBOX';
