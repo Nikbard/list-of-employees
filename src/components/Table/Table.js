@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Table.scss';
 import { CheckboxLabels } from '../UI/Checkbox/Checkbox';
 import { connect } from 'react-redux';
-import { allCheckbox } from '../../store/actions/allCheckbox';
+import { allCheckbox, fetchUsers } from '../../store/actions/allCheckbox';
 
 const renderPeople = (props, handle) => {
+    console.log(props, 'RENDER')
+    if (!props) return 
     return props.map((item, index) => (
         <CheckboxLabels
             key = {index}
@@ -21,6 +23,9 @@ const Table = (props) => {
         const id = event.target.closest('label').id;
         props.allCheckbox(id, event.target.checked);
     };
+    useEffect(() => {props.fetchUsers()}, []);
+    console.log(props)
+
     return (
         <div className='Table'>
             <div className="Table__header">
@@ -41,11 +46,12 @@ const Table = (props) => {
 }
 
 const didState = (state) => {
+    console.log(state, 'state')
     return {
         allCheckboxProps: state.allCheckbox,
-
     }
 }
-const dispatchTo = { allCheckbox }
+
+const dispatchTo = { allCheckbox,  fetchUsers}
 
 export default connect(didState, dispatchTo)(Table)

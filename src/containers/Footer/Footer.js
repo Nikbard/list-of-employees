@@ -12,6 +12,7 @@ const Footer = (props) => {
         }
         return '';
     }
+    console.log(props, 'FOOTER')
     return (
         <footer className='Footer'>
             {renderSurname(props.allCheckboxProps.people)}

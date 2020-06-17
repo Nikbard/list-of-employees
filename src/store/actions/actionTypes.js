@@ -1,1 +1,2 @@
 export const ALL_CHECKBOX = 'ALL_CHECKBOX';
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
